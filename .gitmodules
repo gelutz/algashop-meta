@@ -1,3 +1,3 @@
 [submodule "algashop-ordering"]
-	path = algashop-ordering
-	url = ./algashop-ordering
+	path = ordering
+	url = ./ordering
