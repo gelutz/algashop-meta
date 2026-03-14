@@ -1,0 +1,25 @@
+info:
+  name: AlgaShop Wiremock Request
+  type: http
+  seq: 1
+
+http:
+  method: post
+  url: http://localhost:8780/api/delivery-cost
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "originZipCode": "12345-678",
+        "destinationZipCode": "98765-432"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: false
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
