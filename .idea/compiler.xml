@@ -11,9 +11,18 @@
         <module name="ordering.main" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="com.lutz.algashop.main" target="25" />
+      <module name="com.lutz.algashop.test" target="25" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="billing" options="-parameters" />
+      <module name="billing.main" options="-parameters" />
+      <module name="billing.test" options="-parameters" />
+      <module name="com.lutz.algashop.main" options="-parameters" />
+      <module name="com.lutz.algashop.test" options="-parameters" />
       <module name="ordering" options="-parameters" />
       <module name="ordering.main" options="-parameters" />
       <module name="ordering.test" options="-parameters" />
