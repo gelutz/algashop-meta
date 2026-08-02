@@ -1,0 +1,31 @@
+info:
+  name: Product Catalog Stub - create product
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: http://localhost:8089/api/v1/products
+  headers:
+    - name: Content-Type
+      value: application/json
+    - name: Accept
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Notebook Linux",
+        "brand": "VAIO",
+        "regularPrice": 1500.00,
+        "salePrice": 1000.00,
+        "categoryId": "b551a5cf-7462-4751-bdb5-d1961359a4e2",
+        "description": "A gamer notebook"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: false
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

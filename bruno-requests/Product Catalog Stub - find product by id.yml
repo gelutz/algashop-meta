@@ -1,0 +1,20 @@
+info:
+  name: Product Catalog Stub - find product by id
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: http://localhost:8089/api/v1/products/b551a5cf-7462-4751-bdb5-d1961359a4e2
+  headers:
+    - name: Accept
+      value: application/json
+  body:
+    type: none
+  auth: inherit
+
+settings:
+  encodeUrl: false
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
