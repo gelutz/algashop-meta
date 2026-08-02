@@ -6,3 +6,11 @@ services:
     volumes:
       - ./etc/wiremock:/home/wiremock/mappings
     command: --verbose --disable-http2-plain
+
+  product-catalog-stub:
+    image: wiremock/wiremock:3x
+    ports:
+      - "8089:8080"
+    volumes:
+      - ./microservices/product-catalog/build/stubs/META-INF/com.lutz.algashop/product-catalog/0.0.1-SNAPSHOT/mappings:/home/wiremock/mappings
+    command: --verbose --disable-http2-plain
