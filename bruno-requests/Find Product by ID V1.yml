@@ -1,7 +1,7 @@
 info:
-  name: Product Catalog Stub - find product by id
+  name: Find Product by ID V1
   type: http
-  seq: 3
+  seq: 4
 
 http:
   method: GET
@@ -12,7 +12,7 @@ http:
   auth: inherit
 
 settings:
-  encodeUrl: false
+  encodeUrl: true
   timeout: 0
   followRedirects: true
   maxRedirects: 5

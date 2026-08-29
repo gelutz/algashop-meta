@@ -2,6 +2,23 @@ opencollection: 1.0.0
 
 info:
   name: Algashop
+config:
+  proxy:
+    inherit: true
+    config:
+      protocol: http
+      hostname: ""
+      port: ""
+      auth:
+        username: ""
+        password: ""
+      bypassProxy: ""
+
+request:
+  variables:
+    - name: url
+      value: http://localhost:8089
+      description: Base wiremock url
 bundled: false
 extensions:
   bruno:
