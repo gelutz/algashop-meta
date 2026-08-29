@@ -117,6 +117,43 @@ The container serves whatever JSON is on disk at the mount point. **After changi
 
 If `build/stubs/` does not exist, the mount resolves to an empty directory and every request returns 404.
 
+#### Feeding the stubs to ordering's integration tests
+
+`OrderControllerIT` does not use the container. It starts WireMock in-process and serves the JSON checked in under `microservices/ordering/src/test/resources/wiremock/`, so the tests need neither Docker nor a running product-catalog.
+
+Those files are **copies** of the generated mappings. Nothing regenerates them at test time, so editing a contract does not reach ordering on its own — the copy is a manual step, and skipping it is what makes a test fail against a value the contract no longer contains.
+
+The stubs come from `generateClientStubs`, not from `generateContractTests` (which only writes the producer-side Java tests):
+
+```bash
+make sync-stubs
+```
+
+Which is:
+
+```bash
+cd microservices/product-catalog
+./gradlew generateClientStubs
+
+STUBS=build/stubs/META-INF/com.lutz.algashop/product-catalog/0.0.1-SNAPSHOT/mappings
+DEST=../ordering/src/test/resources/wiremock/product-catalog/mappings
+
+cp $STUBS/product/findProductByIdV1.json         $DEST/find-product-by-id.json
+cp $STUBS/product/findProductByIdNotFoundV1.json $DEST/find-product-by-id-not-found.json
+```
+
+Only the two mappings ordering actually consumes are copied, and they are renamed on the way in. Copying the whole `product/` directory would also pull in `createProductV1`, `updateProductV1` and friends — stubs ordering never calls.
+
+The other `make` targets:
+
+| Target | Does |
+|--------|------|
+| `make stubs` | Generate the stubs, without copying them |
+| `make sync-stubs` | Generate **and** copy into ordering's test resources |
+| `make stub-server` | Generate, then serve them on `localhost:8089` |
+| `make test` | Run every service's suite (`./run-all-tests.sh`) |
+| `make test-ordering` | Run ordering's `check` only |
+
 #### Alternative: Spring Cloud Stub Runner
 
 The plain WireMock container works because the generated mappings are already unpacked as ordinary WireMock JSON. Spring Cloud's Stub Runner is the other option — it resolves a stubs JAR by Maven coordinates and hosts it itself:
