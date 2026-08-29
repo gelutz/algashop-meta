@@ -18,7 +18,10 @@ request:
   variables:
     - name: url
       value: http://localhost:8089
-      description: Base wiremock url
+      description: Application endpoint
+    - name: wireMockUrl
+      value: http://localhost:8087
+      description: Wiremock endpoint
 bundled: false
 extensions:
   bruno:
