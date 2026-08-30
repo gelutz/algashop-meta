@@ -1,0 +1,19 @@
+info:
+  name: Archive Customer
+  type: http
+  seq: 6
+
+http:
+  method: DELETE
+  url: "{{orderingUrl}}/api/v1/customers/{{customerId}}"
+  auth: inherit
+  variables:
+    - name: customerId
+      value: 8cd8c4b1-2b0d-4b1a-9f1c-6a3f4b1d2e5c
+      local: true
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

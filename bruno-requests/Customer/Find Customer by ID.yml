@@ -1,0 +1,22 @@
+info:
+  name: Find Customer by ID
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{orderingUrl}}/api/v1/customers/{{customerId}}"
+  headers:
+    - name: Accept
+      value: application/json
+  auth: inherit
+  variables:
+    - name: customerId
+      value: 8cd8c4b1-2b0d-4b1a-9f1c-6a3f4b1d2e5c
+      local: true
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

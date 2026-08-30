@@ -1,0 +1,22 @@
+info:
+  name: Find Product by ID
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{catalogUrl}}/api/v1/products/{{productId}}"
+  headers:
+    - name: Accept
+      value: application/json
+  auth: inherit
+  variables:
+    - name: productId
+      value: 28fcd9fb-4ce7-44d6-9583-14d8b3dc5aff
+      local: true
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

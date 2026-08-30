@@ -1,0 +1,41 @@
+info:
+  name: Create Customer
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{orderingUrl}}/api/v1/customers"
+  headers:
+    - name: Content-Type
+      value: application/json
+    - name: Accept
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john.doe@example.com",
+        "phone": "478-256-2604",
+        "document": "255-08-0578",
+        "birthdate": "1991-07-05",
+        "promotionNotificationsAllowed": true,
+        "address": {
+          "street": "Bourbon Street",
+          "number": "1134",
+          "complement": "Apt. 114",
+          "neighborhood": "North Ville",
+          "city": "Yoststad",
+          "state": "South Carolina",
+          "zipCode": "12345"
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

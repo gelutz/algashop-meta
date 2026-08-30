@@ -1,0 +1,30 @@
+info:
+  name: Create Shopping Cart
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{orderingUrl}}/api/v1/shopping-carts"
+  headers:
+    - name: Content-Type
+      value: application/json
+    - name: Accept
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "customerId": "{{customerId}}"
+      }
+  auth: inherit
+  variables:
+    - name: customerId
+      value: 8cd8c4b1-2b0d-4b1a-9f1c-6a3f4b1d2e5c
+      local: true
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

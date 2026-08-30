@@ -1,0 +1,19 @@
+info:
+  name: Disable Category
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: "{{catalogUrl}}/api/v1/categories/{{categoryId}}"
+  auth: inherit
+  variables:
+    - name: categoryId
+      value: 1b7c4d2e-8f3a-4c5b-9d6e-0a1b2c3d4e5f
+      local: true
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

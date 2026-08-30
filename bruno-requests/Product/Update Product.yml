@@ -1,0 +1,39 @@
+info:
+  name: Update Product
+  type: http
+  seq: 4
+
+http:
+  method: PUT
+  url: "{{catalogUrl}}/api/v1/products/{{productId}}"
+  headers:
+    - name: Content-Type
+      value: application/json
+    - name: Accept
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Notebook Pro 15",
+        "brand": "Acme",
+        "description": "15 inch developer notebook - updated",
+        "regularPrice": 5000.00,
+        "salePrice": 4200.00,
+        "categoryId": "{{categoryId}}",
+        "enabled": true
+      }
+  auth: inherit
+  variables:
+    - name: productId
+      value: 28fcd9fb-4ce7-44d6-9583-14d8b3dc5aff
+      local: true
+    - name: categoryId
+      value: 1b7c4d2e-8f3a-4c5b-9d6e-0a1b2c3d4e5f
+      local: true
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

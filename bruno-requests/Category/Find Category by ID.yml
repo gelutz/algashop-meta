@@ -1,0 +1,22 @@
+info:
+  name: Find Category by ID
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{catalogUrl}}/api/v1/categories/{{categoryId}}"
+  headers:
+    - name: Accept
+      value: application/json
+  auth: inherit
+  variables:
+    - name: categoryId
+      value: 1b7c4d2e-8f3a-4c5b-9d6e-0a1b2c3d4e5f
+      local: true
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

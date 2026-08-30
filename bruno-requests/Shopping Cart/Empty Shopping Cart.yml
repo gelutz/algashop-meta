@@ -1,0 +1,19 @@
+info:
+  name: Empty Shopping Cart
+  type: http
+  seq: 6
+
+http:
+  method: DELETE
+  url: "{{orderingUrl}}/api/v1/shopping-carts/{{shoppingCartId}}/items"
+  auth: inherit
+  variables:
+    - name: shoppingCartId
+      value: 3f2a1c9e-7b4d-4a8e-9c1b-2d5e6f7a8b90
+      local: true
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

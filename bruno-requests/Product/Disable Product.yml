@@ -1,0 +1,19 @@
+info:
+  name: Disable Product
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: "{{catalogUrl}}/api/v1/products/{{productId}}"
+  auth: inherit
+  variables:
+    - name: productId
+      value: 28fcd9fb-4ce7-44d6-9583-14d8b3dc5aff
+      local: true
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

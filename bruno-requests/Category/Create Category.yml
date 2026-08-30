@@ -1,0 +1,27 @@
+info:
+  name: Create Category
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{catalogUrl}}/api/v1/categories"
+  headers:
+    - name: Content-Type
+      value: application/json
+    - name: Accept
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Notebooks",
+        "enabled": true
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

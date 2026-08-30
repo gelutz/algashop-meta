@@ -19,6 +19,12 @@ request:
     - name: url
       value: http://localhost:8089
       description: Application endpoint
+    - name: orderingUrl
+      value: http://localhost:8080
+      description: Ordering microservice endpoint
+    - name: catalogUrl
+      value: http://localhost:8080
+      description: Product catalog microservice endpoint
     - name: wireMockUrl
       value: http://localhost:8087
       description: Wiremock endpoint
