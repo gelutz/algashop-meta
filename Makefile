@@ -4,8 +4,6 @@ MICROSERVICES := $(CURDIR)/microservices
 PRODUCT_CATALOG := $(MICROSERVICES)/product-catalog
 ORDERING := $(MICROSERVICES)/ordering
 
-# Spring Cloud Contract unpacks the generated mappings under the producer's
-# group/artifact/version coordinates.
 STUBS_DIR := $(PRODUCT_CATALOG)/build/stubs/META-INF/com.lutz.algashop/product-catalog/0.0.1-SNAPSHOT/mappings
 ORDERING_STUBS_DIR := $(ORDERING)/src/test/resources/wiremock/product-catalog/mappings
 
@@ -33,11 +31,3 @@ sync-stubs: stubs ## Regenerate stubs and copy them into ordering's test resourc
 .PHONY: test
 test: ## Run every microservice's test suite
 	./run-all-tests.sh $(GRADLE_ARGS)
-
-.PHONY: test-ordering
-test-ordering: ## Run ordering's tests only
-	cd $(ORDERING) && ./gradlew check $(GRADLE_ARGS)
-
-.PHONY: stub-server
-stub-server: stubs ## Serve the product-catalog stubs on localhost:8089
-	docker compose up product-catalog-stub
