@@ -26,7 +26,7 @@ request:
       value: http://localhost:8080
       description: Product catalog microservice endpoint
     - name: wireMockUrl
-      value: http://localhost:8087
+      value: http://localhost:8187
       description: Wiremock endpoint
 bundled: false
 extensions:

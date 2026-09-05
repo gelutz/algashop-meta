@@ -18,10 +18,11 @@ http:
         "customerId": "{{customerId}}"
       }
   auth: inherit
+
+runtime:
   variables:
     - name: customerId
-      value: 8cd8c4b1-2b0d-4b1a-9f1c-6a3f4b1d2e5c
-      local: true
+      value: "2c65f7f8-baf8-4b8f-9c1e-5210bf4a2c65 "
 
 settings:
   encodeUrl: true
